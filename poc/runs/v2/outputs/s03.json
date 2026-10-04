@@ -1,0 +1,151 @@
+{
+  "id": "s03",
+  "side": "initiator",
+  "safety_checks": [
+    {
+      "on": "opening",
+      "text": "My best friend of ten years completely forgot my birthday this year.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "A friend forgetting a birthday is an ordinary interpersonal issue with no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_1",
+      "text": "No message, no call, nothing. Even people I barely know texted me.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary text with no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_2",
+      "text": "I haven't said anything yet. I've just been ignoring her messages since then.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary text with no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_3",
+      "text": "She's been quiet for the last two or three weeks, slow to reply. I assumed she was just busy with work.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary text with no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_4",
+      "text": "I want her to realise how much it hurt.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary text with no safety concern."
+      }
+    },
+    {
+      "on": "anything_else",
+      "text": "Last year I organised a whole surprise dinner for her birthday.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary text with no safety concern."
+      }
+    },
+    {
+      "on": "pushback",
+      "text": "Why are you making excuses for her? She forgot. Period.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Frustration and irritation only; no safety concern."
+      }
+    },
+    {
+      "on": "harsh_draft",
+      "text": "Ten years of friendship and you couldn't send one text. Clearly I mean nothing to you.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Hurt and accusatory wording, but no violence, coercion, child risk or self-harm."
+      }
+    }
+  ],
+  "intake": [
+    {
+      "question": "What happened on your birthday, and what did you notice?",
+      "chips": [
+        "No message at all",
+        "Only a late message",
+        "She said something hurtful",
+        "Not sure"
+      ],
+      "answer": "No message, no call, nothing. Even people I barely know texted me."
+    },
+    {
+      "question": "Have you said or done anything since then?",
+      "chips": [
+        "Talked to her",
+        "Sent a message",
+        "Said nothing yet",
+        "Pulled back"
+      ],
+      "answer": "I haven't said anything yet. I've just been ignoring her messages since then."
+    },
+    {
+      "question": "What might be going on for her that she hasn't said?",
+      "chips": [
+        "Busy with work",
+        "Something personal",
+        "Upset with me",
+        "No idea"
+      ],
+      "answer": "She's been quiet for the last two or three weeks, slow to reply. I assumed she was just busy with work."
+    },
+    {
+      "question": "What would you like to happen from here?",
+      "chips": [
+        "An apology",
+        "To talk it through",
+        "Things back to normal",
+        "Not sure"
+      ],
+      "answer": "I want her to realise how much it hurt."
+    }
+  ],
+  "anything_else": "Last year I organised a whole surprise dinner for her birthday.",
+  "summary": {
+    "title": "Best friend did not mark my birthday",
+    "what_happened": "My best friend of ten years did not send a message or call on my birthday. People I barely know did text me. She has been quiet and slow to reply for the last two or three weeks, and I assumed she was busy with work. Since my birthday I have not said anything to her and I have been ignoring her messages. Last year I organised a surprise dinner for her birthday.",
+    "my_feelings": "I am hurt that she did not get in touch on my birthday.",
+    "my_needs": "I want her to realise how much this hurt.",
+    "desired_outcome": "I want her to understand how much it hurt me that she did not mark my birthday."
+  },
+  "safety_flagged": false,
+  "consult": [
+    {
+      "role": "ai",
+      "text": "It makes sense that this hurt. You have been friends for ten years, you put real effort into her birthday last year, and on yours you got nothing from her while others did reach out.\n\nHere is how she may see it. You said she has been quiet and slow to reply for a few weeks. That could mean she is stretched thin with work or dealing with something she has not shared. People in that state can lose track of dates, and then feel awful and avoid reaching out. That is only a possibility. You do not know yet.\n\nOne thing that may have made this harder is that you have been ignoring her messages since your birthday. From her side, that may look like you went silent for no reason, and she may not know the birthday is the cause. Right now she cannot respond to a hurt she does not know about.\n\nThe unknowns matter here. You do not know why she has been quiet, and you do not know whether she realises she missed it.\n\nSome next steps. First, answer her messages, even briefly. Second, tell her plainly that her missing your birthday hurt. Third, ask how she has been lately, and listen to the answer before deciding what it means."
+    },
+    {
+      "role": "user",
+      "text": "Why are you making excuses for her? She forgot. Period."
+    },
+    {
+      "role": "ai",
+      "text": "I can hear how much this stings, and I am not saying it does not matter. She did miss your birthday, and your hurt is real.\n\nThe point I would keep is a small one. Going quiet on her may mean she does not know why you have pulled away. That is the part you can change today.\n\nWhat I would do next is simple. Reply to her. Say that you were hurt that she did not get in touch on your birthday. Then see what she says. If you want her to understand how much it hurt, telling her directly is the most likely way for that to happen. I can help you word that message whenever you are ready."
+    }
+  ],
+  "share_blocked": false,
+  "share_draft": "Hi, I want to be honest with you. I've been ignoring your messages since my birthday, and I'm sorry for going quiet on you. The reason is that I was hurt. I didn't hear from you on my birthday, and after ten years of friendship that really stung. I also know you've been quiet and busy lately, and I don't know what's going on for you. I'd like you to understand how much it hurt. I'd also like to hear how things have been on your side.",
+  "harsh_draft": "Ten years of friendship and you couldn't send one text. Clearly I mean nothing to you.",
+  "rewrite": {
+    "rewrite": "We've been friends for ten years, and I didn't get a text from you on my birthday. That hurt me.",
+    "harsh": true
+  },
+  "perspective_summary": null
+}

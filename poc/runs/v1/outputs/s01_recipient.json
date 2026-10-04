@@ -1,0 +1,117 @@
+{
+  "id": "s01",
+  "side": "recipient",
+  "received_message": "Hi Daniel. I want to talk about what happened with Aram's homework last night. I was upset by how loud things got, and by the word \"lazy\". I also know I told you that you were overreacting in front of Aram, and then let him keep the tablet. I think that made it harder for you. I'd like us to be on the same side with him. I'd like us to agree on rules for homework and screens together, so neither of us has to decide alone. How did the evening look from your side? I'd like to hear it.",
+  "safety_checks": [
+    {
+      "on": "intake_answer_1",
+      "text": "Aram has skipped homework three times this week and his teacher emailed us about it.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "The user describes a school problem with homework and no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_2",
+      "text": "I raised my voice, yes, and calling him lazy was wrong, I regret that word.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "The user admits raising his voice and regrets a word; this is ordinary anger, not violence or threat."
+      }
+    },
+    {
+      "on": "intake_answer_3",
+      "text": "But when Leila says I'm overreacting in front of him and then lets him keep the tablet, he learns that my rules mean nothing.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "The user describes a disagreement over parenting rules with no safety concern."
+      }
+    },
+    {
+      "on": "intake_answer_4",
+      "text": "I want us to be a team. I'm happy to be calmer if she stops cancelling my decisions in front of him.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "The user states a wish for teamwork and calmer behaviour."
+      }
+    },
+    {
+      "on": "anything_else",
+      "text": "No.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No content to flag."
+      }
+    },
+    {
+      "on": "harsh_draft",
+      "text": "Maybe if you didn't undo everything I say, I wouldn't have to shout. You've made him think he can do whatever he wants.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "This is blaming and frustrated but contains no threat, violence, coercive control or risk to a child."
+      }
+    }
+  ],
+  "intake": [
+    {
+      "question": "How do you see this?",
+      "chips": [],
+      "answer": "Aram has skipped homework three times this week and his teacher emailed us about it."
+    },
+    {
+      "question": "What did you do or say in the moment?",
+      "chips": [
+        "I raised my voice",
+        "I gave a consequence",
+        "I stayed calm",
+        "Something else"
+      ],
+      "answer": "I raised my voice, yes, and calling him lazy was wrong, I regret that word."
+    },
+    {
+      "question": "How do you think the rules were affected by what Leila did?",
+      "chips": [
+        "Not much",
+        "They were weakened",
+        "I'm not sure"
+      ],
+      "answer": "But when Leila says I'm overreacting in front of him and then lets him keep the tablet, he learns that my rules mean nothing."
+    },
+    {
+      "question": "What would you like to happen from here?",
+      "chips": [
+        "Agree rules together",
+        "Be calmer myself",
+        "Talk to Aram",
+        "Not sure yet"
+      ],
+      "answer": "I want us to be a team. I'm happy to be calmer if she stops cancelling my decisions in front of him."
+    }
+  ],
+  "anything_else": "No.",
+  "summary": {
+    "title": "Disagreement with Leila over Aram's homework",
+    "what_happened": "Aram has skipped homework three times this week, and his teacher emailed us about it. Last night I raised my voice and used the word lazy, which I now regret. Leila told me I was overreacting in front of him, and then let him keep the tablet.",
+    "my_feelings": "I regret the word I used. I feel my rules are not taken seriously when they are changed in front of Aram.",
+    "my_needs": "I need us to back each other's decisions in front of Aram, and to talk about rules between ourselves.",
+    "desired_outcome": "I want us to work as a team. I am willing to be calmer if my decisions are not cancelled in front of him."
+  },
+  "perspective_summary": "This person is concerned about how loud and harsh the evening became and about being called overreacting in front of the child. They feel the child's rules lose weight when a decision made by one parent is reversed in front of him. They accept that the tone and one word used were wrong. They want both parents to be calm and to agree on homework and consequences together.",
+  "consult": [
+    {
+      "role": "ai",
+      "text": "It sounds like you were worried and frustrated. Aram has skipped homework three times, the teacher has written, and then your decision was reversed in front of him. That would feel like being undermined.\n\nLeila has written to you, and she seems to see it differently in one way. She was upset by the shouting and the word lazy, and she wants you both to set rules together. She also says that telling you that you were overreacting in front of Aram, and letting him keep the tablet, was not helpful. That is a real opening. She is not only criticising you.\n\nOne thing that may have made this harder is how the evening went. You have said yourself that raising your voice and the word lazy were wrong, and that matters. A two-week ban decided in the moment may also have been hard for her to support, since the two of you had not agreed on it first.\n\nWe do not know yet how Aram felt, or what Leila would call a fair consequence.\n\nSome next steps. First, reply to Leila and say that you regret the word, which is honest and sets a calm tone. Second, suggest sitting down without Aram to agree on homework rules and what happens when they are not followed. Third, agree that when you disagree, you will talk privately first."
+    }
+  ],
+  "harsh_draft": "Maybe if you didn't undo everything I say, I wouldn't have to shout. You've made him think he can do whatever he wants.",
+  "rewrite": {
+    "rewrite": "I think we both want what is best for Aram. When my decisions are undone in front of him, it is harder for me to stay calm. I feel that has made Aram think he can do whatever he wants. I would like us to find a way to back each other up.",
+    "harsh": true
+  }
+}

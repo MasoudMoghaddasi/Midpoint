@@ -1,0 +1,150 @@
+{
+  "id": "s06",
+  "side": "initiator",
+  "safety_checks": [
+    {
+      "on": "opening",
+      "text": "My 16 year old came home two hours late and didn't answer her phone, so I took her phone for a month.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "intake_answer_1",
+      "text": "Curfew was 22:00, she came at midnight. I called 11 times. I was about to call the police.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "intake_answer_2",
+      "text": "She said her phone died and the bus was cancelled, and a friend's mum drove them later.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "intake_answer_3",
+      "text": "I shouted at her at the door and announced the punishment right away.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "intake_answer_4",
+      "text": "I want her to understand how scared I was and that rules matter.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "anything_else",
+      "text": "This is the first time she has been this late. She's normally reliable.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "pushback",
+      "text": "So I should just let it go? She could have been dead in a ditch for all I knew.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    },
+    {
+      "on": "harsh_draft",
+      "text": "You are so irresponsible. One month without the phone, and if you complain it becomes two.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "Ordinary disagreement or worry; no violence, coercion, child at risk or self-harm shown."
+      }
+    }
+  ],
+  "intake": [
+    {
+      "question": "What happened that evening, from when she was due home?",
+      "chips": [
+        "She missed curfew and I couldn't reach her",
+        "She came home late",
+        "I'm not sure of the details"
+      ],
+      "answer": "Curfew was 22:00, she came at midnight. I called 11 times. I was about to call the police."
+    },
+    {
+      "question": "How do you think your daughter sees what happened?",
+      "chips": [
+        "She has an explanation",
+        "She thinks I overreacted",
+        "She didn't say",
+        "Not sure"
+      ],
+      "answer": "She said her phone died and the bus was cancelled, and a friend's mum drove them later."
+    },
+    {
+      "question": "How did you respond when she got home?",
+      "chips": [
+        "Stayed calm and talked",
+        "Raised my voice",
+        "Set a consequence",
+        "Something else"
+      ],
+      "answer": "I shouted at her at the door and announced the punishment right away."
+    },
+    {
+      "question": "What would you like to come out of this?",
+      "chips": [
+        "She understands my worry",
+        "She follows the rules",
+        "We talk it through",
+        "Not sure"
+      ],
+      "answer": "I want her to understand how scared I was and that rules matter."
+    }
+  ],
+  "anything_else": "This is the first time she has been this late. She's normally reliable.",
+  "summary": {
+    "title": "Daughter came home two hours after curfew",
+    "what_happened": "My 16 year old daughter's curfew was 22:00 and she came home at midnight. I called her 11 times and was about to call the police. She told me her phone died and the bus was cancelled, and that a friend's mum drove them later. I shouted at her at the door and announced right away that I was taking her phone for a month. This is the first time she has been this late, and she is normally reliable.",
+    "my_feelings": "I was scared.",
+    "my_needs": "I need her to understand how scared I was and that rules matter.",
+    "desired_outcome": "I want her to understand how scared I was and that rules matter."
+  },
+  "safety_flagged": false,
+  "consult": [
+    {
+      "role": "ai",
+      "text": "Not being able to reach your daughter for two hours, and calling 11 times while getting close to phoning the police, sounds frightening. Your fear makes sense, and caring about the curfew is reasonable.\n\nYour daughter may see it very differently. If her phone died and the bus was cancelled, she may feel she had little control over being late. She may be tired, maybe a little scared of your reaction, and hurt that the punishment came before anyone heard her side. She may also not realise how worried you were.\n\nThe main issue with the punishment itself seems to be that you shouted and announced a month without her phone before hearing what happened. That makes it more likely she will focus on the unfairness and not on your fear.\n\nThere are unknowns. You do not know yet whether her account is complete, for example whether she could have borrowed a phone to let you know. This is also the first time she has been this late.\n\nSome next steps:\n- Tell her calmly how frightened you were, without the punishment attached.\n- Ask her to tell you the whole evening, and listen first.\n- Decide on a consequence together that is proportionate, and agree what she should do if she is ever stuck."
+    },
+    {
+      "role": "user",
+      "text": "So I should just let it go? She could have been dead in a ditch for all I knew."
+    },
+    {
+      "role": "ai",
+      "text": "I hear how much fear is behind that. Not knowing where she was is a terrible feeling, and it is clear you love her.\n\nLetting it go is not the only choice. The curfew and your worry both matter, and she can be asked to take them seriously. The point I would still gently hold on to is that the punishment was set in anger, before you heard her side. That is likely to make her hear unfairness, not your fear.\n\nYou can keep the rule and still change how you handle it. For example:\n- Pick a calm moment and tell her directly how scared you were that night.\n- Ask her what happened, and what she could have done to reach you, such as using a friend's phone.\n- Come back to the length of the phone ban once you have both talked, and agree on a plan for being late in the future."
+    }
+  ],
+  "share_blocked": false,
+  "share_draft": "I handled last night badly. I shouted at you at the door and told you the punishment before I had heard what happened. I want to start again. When you were two hours late and I could not reach you, I was very scared. I called 11 times and was close to calling the police. Curfew matters to me because I need to know you are safe. I know you said your phone died and the bus was cancelled, and I would like to hear the whole story from you. Can we talk about it, and about what we should both do if something like this happens again?",
+  "harsh_draft": "You are so irresponsible. One month without the phone, and if you complain it becomes two.",
+  "rewrite": {
+    "rewrite": "I was very worried when you did not come home or answer. You will be without your phone for one month.",
+    "harsh": true
+  },
+  "perspective_summary": null
+}

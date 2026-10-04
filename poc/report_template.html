@@ -1,0 +1,174 @@
+<title>Midpoint Neutrality Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column; summary + score matrix first, then one section per scenario with collapsible transcript. */
+:root {
+  --bg: #f6f7f8; --surface: #ffffff; --fg: #1d2329; --muted: #5b6670; --line: #dde2e6;
+  --accent: #3b5bab; --accent-soft: #e6ecf8;
+  --user: #eef1f4; --ai: #eef3fb;
+  --crit: #b3261e; --crit-soft: #fbe9e7; --major: #a35a00; --major-soft: #fdf1e1; --minor: #56636e; --minor-soft: #eceff2;
+  --s1: #f4c7c3; --s2: #f8dcc0; --s3: #f1ecc4; --s4: #d3ead5; --s5: #b7dfc0;
+  --display: "Newsreader", Georgia, serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #14181c; --surface: #1c2227; --fg: #e3e8ec; --muted: #9aa6b0; --line: #2d353c;
+  --accent: #8fa9ec; --accent-soft: #22304f; --user: #232a30; --ai: #1e2a3d;
+  --crit: #f2a097; --crit-soft: #3d1f1c; --major: #f0b46a; --major-soft: #3a2a14; --minor: #a8b3bc; --minor-soft: #262d33;
+  --s1: #5a2723; --s2: #5a3a1c; --s3: #4a4520; --s4: #24452b; --s5: #1f5a31; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #14181c; --surface: #1c2227; --fg: #e3e8ec; --muted: #9aa6b0; --line: #2d353c;
+  --accent: #8fa9ec; --accent-soft: #22304f; --user: #232a30; --ai: #1e2a3d;
+  --crit: #f2a097; --crit-soft: #3d1f1c; --major: #f0b46a; --major-soft: #3a2a14; --minor: #a8b3bc; --minor-soft: #262d33;
+  --s1: #5a2723; --s2: #5a3a1c; --s3: #4a4520; --s4: #24452b; --s5: #1f5a31; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 15px/1.6 var(--body); }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 16px; padding-block: 40px 80px; display: grid; gap: 40px }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.2 }
+h1 { font-size: 2.4rem } h2 { font-size: 1.6rem } h3 { font-size: 1.1rem; font-family: var(--body) }
+p { margin: 0; max-width: 68ch }
+.eyebrow { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted) }
+header { display: grid; gap: 14px }
+.note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; display: grid; gap: 6px }
+section { display: grid; gap: 16px; min-width: 0 }
+.stats { display: flex; flex-wrap: wrap; gap: 24px }
+.stat { display: grid; gap: 2px } .stat b { font: 600 1.6rem/1 var(--display) } .stat span { color: var(--muted); font-size: 0.85rem }
+ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface) }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; font-variant-numeric: tabular-nums }
+th, td { padding: 8px 10px; text-align: center; border-bottom: 1px solid var(--line); white-space: nowrap }
+th { font: 500 0.7rem/1.2 var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted) }
+td.name { text-align: left; white-space: normal; min-width: 180px } td.name a { color: var(--fg); text-decoration: none } td.name a:hover { color: var(--accent) }
+.c1 { background: var(--s1) } .c2 { background: var(--s2) } .c3 { background: var(--s3) } .c4 { background: var(--s4) } .c5 { background: var(--s5) } .cna { color: var(--muted) } td small.prev { display: block; font-size: 0.68rem; color: var(--muted); opacity: 0.85 }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.8rem; color: var(--muted) } .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 4px }
+.scen { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; scroll-margin-top: 16px }
+.scen-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline }
+.pill { font: 500 0.72rem/1 var(--mono); padding: 5px 8px; border-radius: 99px; background: var(--minor-soft); color: var(--minor); text-transform: uppercase; letter-spacing: 0.04em }
+.pill.crit { background: var(--crit-soft); color: var(--crit) } .pill.major { background: var(--major-soft); color: var(--major) } .pill.ok { background: var(--s4); color: var(--fg) }
+.truth { font-size: 0.88rem; color: var(--muted) }
+.scores { display: flex; flex-wrap: wrap; gap: 6px }
+.sc { font: 0.75rem/1 var(--mono); padding: 6px 8px; border-radius: 4px }
+.issues { display: grid; gap: 8px }
+.issue { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; align-items: start; font-size: 0.9rem }
+.issue .q { grid-column: 2; font-style: italic; color: var(--muted); border-left: 2px solid var(--line); padding-left: 8px }
+.best { font-size: 0.9rem } .best q { font-style: italic }
+details { border-top: 1px solid var(--line); padding-top: 10px }
+summary { cursor: pointer; font-weight: 500; color: var(--accent) }
+summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.tx { display: grid; gap: 10px; margin-top: 12px; min-width: 0 }
+.step { font: 500 0.7rem/1 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 8px }
+.bubble { padding: 10px 14px; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 68ch }
+.bubble.user { background: var(--user) } .bubble.ai { background: var(--ai) }
+.bubble small { display: block; font: 0.7rem/1.4 var(--mono); color: var(--muted); margin-bottom: 4px }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px } .chips span { font-size: 0.75rem; border: 1px solid var(--line); border-radius: 99px; padding: 2px 8px }
+.safety { font: 0.75rem/1.5 var(--mono); color: var(--muted) } .safety .f { color: var(--crit); font-weight: 500 }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px } .pair > * { min-width: 0 }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Midpoint · proof of concept · <span id="date"></span></div>
+    <h1>Midpoint neutrality test</h1>
+    <p>Made-up conflicts went through Midpoint's AI flow: intake questions, private consultation, user pushback, a polite share message, and a rewrite of an angry message. A separate reviewer scored every output against a hidden "who is actually at fault" note. The question: how biased or harmful do the answers get when the only guardrail is the prompts?</p>
+    <p>Two rounds. Round 1 ran 10 scenarios on the v1 prompts. The reviewer's findings were turned into general rules (nothing scenario-specific) for the v2 prompts. Round 2 re-ran those 10 plus 3 new held-out scenarios that the fixes never saw, with a fresh reviewer who did not see round 1. Scores below are round 2; the small number is round 1.</p>
+    <div class="note">
+      <strong>How this was produced</strong>
+      <p>Each model call was simulated by a Claude agent (Sonnet) given only Midpoint's guardrail prompts and the user's words. It never saw the hidden notes. The judge (Opus) saw everything. Agents are a close approximation of raw API calls but not identical. The simulated user picked answers from a fixed list, so conversations are less messy than real ones. Treat this as throwaway evidence, not a benchmark.</p>
+    </div>
+  </header>
+
+  <section id="overall"></section>
+  <section id="matrix"></section>
+  <section id="scenarios"></section>
+</div>
+
+<script>
+const DATA = /*DATA*/null;
+const KEYS = [["neutrality","Neutral"],["honesty","Honest"],["non_undermining","Respectful"],["pushback","Pushback"],["politeness_share","Share"],["rewrite_fidelity","Rewrite"],["safety","Safety"],["intake_quality","Intake"]];
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cell = (v, p) => { const old = p === undefined ? "" : `<small class="prev">${p == null ? "n/a" : p}</small>`; return v == null ? `<td class="cna">n/a${old}</td>` : `<td class="c${Math.round(v)}">${v}${old}</td>`; };
+const scoreChip = (k, label, v) => v == null ? "" : `<span class="sc c${Math.round(v)}">${label} ${v}</span>`;
+document.getElementById("date").textContent = DATA.date;
+
+const J = DATA.judgment, byId = Object.fromEntries(J.scenarios.map(s => [s.id, s]));
+const allIssues = J.scenarios.flatMap(s => [...(s.issues||[]), ...((s.recipient||{}).issues||[])]);
+const count = sev => allIssues.filter(i => i.severity === sev).length;
+const P = DATA.prev, prevById = Object.fromEntries(P.scenarios.map(s => [s.id, s]));
+const prevIssues = P.scenarios.flatMap(s => [...(s.issues||[]), ...((s.recipient||{}).issues||[])]);
+const pcount = sev => prevIssues.filter(i => i.severity === sev).length;
+const pavg = k => { const v = P.scenarios.map(s => s.scores[k]).filter(x => x != null); return (v.reduce((a,b)=>a+b,0)/v.length).toFixed(1); };
+const avg = k => { const v = J.scenarios.map(s => s.scores[k]).filter(x => x != null); return v.length ? (v.reduce((a,b)=>a+b,0)/v.length).toFixed(1) : "–"; };
+
+document.getElementById("overall").innerHTML = `
+  <div class="eyebrow">Verdict</div>
+  <h2>What the reviewer concluded</h2>
+  <div class="stats">
+    <div class="stat"><b>${DATA.scenarios.length}</b><span>scenarios</span></div>
+    <div class="stat"><b>${avg("neutrality")}</b><span>avg neutrality / 5 (round 1: ${pavg("neutrality")})</span></div>
+    <div class="stat"><b>${avg("honesty")}</b><span>avg honesty / 5 (round 1: ${pavg("honesty")})</span></div>
+    <div class="stat"><b>${avg("rewrite_fidelity")}</b><span>avg rewrite / 5 (round 1: ${pavg("rewrite_fidelity")})</span></div>
+    <div class="stat"><b>${count("critical")}</b><span>critical issues (round 1: ${pcount("critical")})</span></div>
+    <div class="stat"><b>${count("major")}</b><span>major issues (round 1: ${pcount("major")})</span></div>
+    <div class="stat"><b>${count("minor")}</b><span>minor issues (round 1: ${pcount("minor")})</span></div>
+  </div>
+  <p>${esc(J.overall.verdict)}</p>
+  <h3>Bias pattern</h3><p>${esc(J.overall.bias_pattern)}</p>
+  <h3>Top risks</h3><ul class="plain">${J.overall.top_risks.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+  <h3>What changed from v1 to v2 prompts</h3><ul class="plain">${DATA.changes.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+  <h3>Round 1 verdict</h3><p>${esc(P.overall.verdict)}</p>
+  <h3>Suggested next prompt fixes</h3><ul class="plain">${J.overall.prompt_fixes.map(r => `<li>${esc(r)}</li>`).join("")}</ul>`;
+
+document.getElementById("matrix").innerHTML = `
+  <div class="eyebrow">Scores</div>
+  <h2>Score matrix</h2>
+  <div class="legend"><span><i class="c1"></i>1 harmful</span><span><i class="c3"></i>3 acceptable, clear issues</span><span><i class="c5"></i>5 excellent</span><span>small number = round 1</span><span>n/a = step correctly blocked</span></div>
+  <div class="scroll"><table>
+    <thead><tr><th style="text-align:left">Scenario</th><th>Truth</th>${KEYS.map(k => `<th>${k[1]}</th>`).join("")}</tr></thead>
+    <tbody>${DATA.scenarios.map(sc => { const j = byId[sc.id]; return `<tr>
+      <td class="name"><a href="#${sc.id}">${sc.id.toUpperCase()} · ${esc(sc.title)}</a>${DATA.truth[sc.id].holdout ? ` <span class="pill">held-out</span>` : ""}</td>
+      <td><span class="pill">${esc(DATA.truth[sc.id].fault.replace(/_/g," "))}</span></td>
+      ${KEYS.map(k => cell(j.scores[k[0]], prevById[sc.id] ? prevById[sc.id].scores[k[0]] : undefined)).join("")}</tr>`; }).join("")}
+      ${byId.s01.recipient ? `<tr><td class="name"><a href="#s01">S01 · recipient side (Daniel)</a></td><td><span class="pill">${byId.s01.recipient.leak && byId.s01.recipient.leak.leaked ? "leak" : "no leak"}</span></td>${KEYS.map(k => cell(byId.s01.recipient.scores[k[0]], prevById.s01.recipient ? prevById.s01.recipient.scores[k[0]] : undefined)).join("")}</tr>` : ""}
+    </tbody></table></div>`;
+
+const bubble = (cls, label, text) => `<div class="bubble ${cls}"><small>${esc(label)}</small>${esc(text)}</div>`;
+const safetyLine = list => (list||[]).map(c => `<div class="safety">${c.result.flagged ? `<span class="f">FLAGGED ${esc(c.result.category)}</span>` : "ok"} · safety_check on ${esc(c.on)}${c.result.flagged ? ` · ${esc(c.result.reason)}` : ""}</div>`).join("");
+const issuesHtml = list => !list || !list.length ? `<p class="truth">No issues recorded.</p>` : `<div class="issues">${list.map(i => `<div class="issue"><span class="pill ${i.severity === "critical" ? "crit" : i.severity === "major" ? "major" : ""}">${esc(i.severity)}</span><span><b>${esc(i.step)}</b>: ${esc(i.why)}</span>${i.quote ? `<span class="q">“${esc(i.quote)}”</span>` : ""}</div>`).join("")}</div>`;
+
+function transcript(o, sc, opening) {
+  let h = `<div class="tx">`;
+  if (o.received_message) h += `<div class="step">Received from Leila</div>` + bubble("user", "share message", o.received_message);
+  if (opening) h += `<div class="step">Opening</div>` + bubble("user", sc.user, opening);
+  h += `<div class="step">Intake</div>`;
+  for (const t of o.intake || []) h += `<div class="bubble ai"><small>AI question</small>${esc(t.question)}${t.chips && t.chips.length ? `<div class="chips">${t.chips.map(c => `<span>${esc(c)}</span>`).join("")}</div>` : ""}</div>` + bubble("user", "answer", t.answer);
+  if (o.anything_else) h += bubble("ai", "app question", "Anything else you'd like to add?") + bubble("user", "answer", o.anything_else);
+  h += safetyLine(o.safety_checks);
+  if (o.summary) h += `<div class="step">Issue summary</div>` + bubble("ai", o.summary.title || "summary", ["what_happened","my_feelings","my_needs","desired_outcome"].map(k => o.summary[k] ? `${k.replace(/_/g," ")}: ${o.summary[k]}` : "").filter(Boolean).join("\n\n"));
+  if (o.perspective_summary) h += `<div class="step">Perspective summary (AI-only, never shown to the other side)</div>` + bubble("ai", "perspective_summary", o.perspective_summary);
+  h += `<div class="step">Consultation${o.safety_flagged ? " (safety mode)" : ""}</div>`;
+  for (const m of o.consult || []) h += bubble(m.role === "ai" ? "ai" : "user", m.role === "ai" ? "AI" : "user", m.text);
+  if (o.side !== "recipient") h += `<div class="step">Share message</div>` + (o.share_blocked ? bubble("ai", "blocked", "Sharing is turned off for this issue because of the safety flag.") : bubble("ai", "draft_share", o.share_draft));
+  h += `<div class="step">Angry message rewrite</div><div class="pair">${bubble("user", "original draft", o.harsh_draft)}${o.rewrite ? bubble("ai", `polite_rewrite · harsh=${o.rewrite.harsh}`, o.rewrite.rewrite) : bubble("ai", "not sent", "Blocked: no rewrite offered on a safety-flagged issue.")}</div>`;
+  return h + `</div>`;
+}
+
+document.getElementById("scenarios").innerHTML = `<div class="eyebrow">Detail</div><h2>Scenarios</h2>` + DATA.scenarios.map(sc => {
+  const j = byId[sc.id], o = DATA.outputs[sc.id], t = DATA.truth[sc.id], r = j.recipient;
+  const worst = (j.issues||[]).some(i => i.severity === "critical") ? "crit" : (j.issues||[]).some(i => i.severity === "major") ? "major" : "ok";
+  return `<article class="scen" id="${sc.id}">
+    <div class="scen-head"><span class="eyebrow">${sc.id.toUpperCase()}</span><h3>${esc(sc.title)}</h3><span class="pill ${worst}">${worst === "crit" ? "critical issue" : worst === "major" ? "major issue" : "no major issues"}</span>${sc.shared ? `<span class="pill">two-sided</span>` : ""}${t.holdout ? `<span class="pill">held-out</span>` : ""}</div>
+    <p class="truth"><b>Hidden truth:</b> ${esc(t.truth)}</p>
+    <div class="scores">${KEYS.map(k => scoreChip(k[0], k[1], j.scores[k[0]])).join("")}</div>
+    <p>${esc(j.verdict)}</p>
+    ${j.best_line ? `<p class="best"><b>Best line:</b> <q>${esc(j.best_line)}</q></p>` : ""}
+    ${issuesHtml(j.issues)}
+    ${r ? `<h3>Recipient side (Daniel)</h3><div class="scores">${KEYS.map(k => scoreChip(k[0], k[1], r.scores[k[0]])).join("")}</div><p>${esc(r.verdict)}</p><p class="truth"><b>Privacy leak check:</b> ${r.leak && r.leak.leaked ? `LEAK: ${esc(r.leak.evidence)}` : "no leak found"}</p>${issuesHtml(r.issues)}` : ""}
+    <details><summary>Full transcript${r ? " (Leila)" : ""}</summary>${transcript(o, sc, sc.opening)}</details>
+    ${r ? `<details><summary>Full transcript (Daniel, recipient)</summary>${transcript(DATA.outputs.s01_recipient, sc.recipient, null)}</details>` : ""}
+  </article>`;
+}).join("");
+</script>

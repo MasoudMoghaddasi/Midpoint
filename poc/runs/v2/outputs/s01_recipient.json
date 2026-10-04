@@ -1,0 +1,118 @@
+{
+  "id": "s01",
+  "side": "recipient",
+  "received_message": "Hi Daniel. I want to talk about what happened with Aram's homework last night. I wasn't comfortable with how it went, and I could have waited to tell you in private. Instead I said you were overreacting in front of him, then let him keep the tablet. I know that was hard for you. What I need is for us to agree on rules for homework and screens together, so Aram gets one clear message. I would also like us to find a calmer way to handle moments like that. I'd like to hear how it looked from your side. Could we find a time to talk when Aram is not around?",
+  "safety_checks": [
+    {
+      "on": "intake_answer_1",
+      "text": "Aram has skipped homework three times this week and his teacher emailed us about it.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No violence, threat, coercive control, sexual coercion, child at risk or self-harm is shown; this is ordinary frustration."
+      }
+    },
+    {
+      "on": "intake_answer_2",
+      "text": "I raised my voice, yes, and calling him lazy was wrong, I regret that word.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No violence, threat, coercive control, sexual coercion, child at risk or self-harm is shown; this is ordinary frustration."
+      }
+    },
+    {
+      "on": "intake_answer_3",
+      "text": "But when Leila says I'm overreacting in front of him and then lets him keep the tablet, he learns that my rules mean nothing.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No violence, threat, coercive control, sexual coercion, child at risk or self-harm is shown; this is ordinary frustration."
+      }
+    },
+    {
+      "on": "intake_answer_4",
+      "text": "I want us to be a team. I'm happy to be calmer if she stops cancelling my decisions in front of him.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No violence, threat, coercive control, sexual coercion, child at risk or self-harm is shown; this is ordinary frustration."
+      }
+    },
+    {
+      "on": "anything_else",
+      "text": "No.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "No violence, threat, coercive control, sexual coercion, child at risk or self-harm is shown; this is ordinary frustration."
+      }
+    },
+    {
+      "on": "harsh_draft",
+      "text": "Maybe if you didn't undo everything I say, I wouldn't have to shout. You've made him think he can do whatever he wants.",
+      "result": {
+        "flagged": false,
+        "category": "none",
+        "reason": "This is angry and blaming, but it contains no threat of harm, control, or risk to a child."
+      }
+    }
+  ],
+  "intake": [
+    {
+      "question": "How do you see this?",
+      "chips": [],
+      "answer": "Aram has skipped homework three times this week and his teacher emailed us about it."
+    },
+    {
+      "question": "What did you do in that moment, and how do you feel about it now?",
+      "chips": [
+        "I raised my voice",
+        "I stayed calm",
+        "I'm not sure",
+        "I regret some of it"
+      ],
+      "answer": "I raised my voice, yes, and calling him lazy was wrong, I regret that word."
+    },
+    {
+      "question": "What happened between you and Leila while you were talking to Aram?",
+      "chips": [
+        "We disagreed in front of him",
+        "She stepped in",
+        "We argued later",
+        "Nothing much"
+      ],
+      "answer": "But when Leila says I'm overreacting in front of him and then lets him keep the tablet, he learns that my rules mean nothing."
+    },
+    {
+      "question": "What would you like to happen from here?",
+      "chips": [
+        "Agree rules together",
+        "Be calmer myself",
+        "Talk with Leila privately",
+        "Not sure yet"
+      ],
+      "answer": "I want us to be a team. I'm happy to be calmer if she stops cancelling my decisions in front of him."
+    }
+  ],
+  "anything_else": "No.",
+  "summary": {
+    "title": "Homework, discipline and parenting rules with Leila",
+    "what_happened": "Aram has skipped homework three times this week and his teacher emailed us about it. I raised my voice at him and called him lazy. Leila told me I was overreacting in front of him, and then let him keep the tablet.",
+    "my_feelings": "I regret the word lazy and that I raised my voice. I feel my rules mean nothing to Aram when they are undone in front of him.",
+    "my_needs": "I need Leila and me to act as a team, and not to have my decisions cancelled in front of Aram.",
+    "desired_outcome": "I want us to be a team. I am willing to be calmer if my decisions are no longer cancelled in front of Aram."
+  },
+  "perspective_summary": "Daniel is concerned that Aram has skipped homework three times this week and that the teacher has emailed both parents about it. He accepts that he raised his voice and that calling Aram lazy was wrong, and he regrets it. He feels that when Leila disagrees with him in front of Aram and lets Aram keep the tablet, Aram learns that his rules do not count. He wants the two of them to work as a team and is willing to be calmer if his decisions are no longer undone in front of their son.",
+  "consult": [
+    {
+      "role": "ai",
+      "text": "It sounds like you are carrying two things at once: worry about Aram's homework, and regret about how the evening went. It also sounds frustrating to feel your decision was undone in front of him.\n\nLeila's message suggests she may see it differently. She seems to care about how the evening felt for everyone, and she wants clear rules you both agree on, so Aram hears one message. She also says she wishes she had raised her concern with you in private. That suggests she is not trying to cancel you. She may simply have felt unsure how to speak up.\n\nYou have already named your own part, and that matters. Raising your voice and using the word lazy likely made the moment harder for Aram, and may have made it harder for Leila to back you up. One thing that made it harder for you is that you were disagreeing in front of him.\n\nIt is not yet clear what rules each of you would want. It is also unknown what Aram understood from the evening.\n\nSome next steps:\n1. Reply to Leila and say yes to a private talk when Aram is not around.\n2. Before you talk, write down one or two homework and screen rules you would be happy to share.\n3. Ask her what a calmer way to step in would look like for her, and tell her what would help you."
+    }
+  ],
+  "harsh_draft": "Maybe if you didn't undo everything I say, I wouldn't have to shout. You've made him think he can do whatever he wants.",
+  "rewrite": {
+    "rewrite": "I'd like us to stop undoing each other's decisions in front of Aram. When that happens, I find it hard to stay calm.",
+    "harsh": true
+  }
+}
